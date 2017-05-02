@@ -3,23 +3,40 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Modal</title>
+    <title>Modal Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <link rel="stylesheet" href="./modal.css" />
 </head>
 <body>
     <h1>Modal Demo</h1>
-    <button id="open-moda-btn">
+    <p>
+        Requiremens:
+    </p>
+    <ul>
+        <li>jQuery</li>
+        <li>modal.js</li>
+    </ul>
+    <hr>
+    <h2>Modal with static content</h2>
+    <button id="demo-btn-default">
         Open Modal
+    </button>
+    <h2>Modal with ajax-loaded resource</h2>
+    <button id="demo-btn-ajax">
+        Ajax-Call
+    </button>
+    <h2>Modal for Youtube-Video</h2>
+    <button id="demo-btn-youtube">
+        Yotube
     </button>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="modal.js"></script>
     <script>
  
-        $('#open-moda-btn').on('click', function() {
+        $('#demo-btn-default').on('click', function() {
             var myModal = modal({
                 content: '<div style="padding: 20px;"><h1>Hallo Welt</h1><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<hr /><button class="modal-close">Close</button><button class="modal-close2">Close</button></p></div>',
-                contentUrl: null, //'ajax-content.html',
+                contentUrl: null,
                 useCache: false,
                 youtubeUrl: null,
                 class: 'my-modal',
@@ -34,6 +51,18 @@
                 afterModalOpen: (modal)=> console.log('afterOpen', modal),
                 beforeModalClose: (modal)=> console.log('beforeClose', modal),
                 afterModalClose: (modal)=> console.log('afterClose', modal)
+            });
+        });
+ 
+        $('#demo-btn-ajax').on('click', function() {
+            var myModal = modal({
+                contentUrl: 'ajax-content.html'
+            });
+        });
+
+        $('#demo-btn-youtube').on('click', function() {
+            var myModal = modal({
+                youtubeUrl: 'https://www.youtube.com/watch?v=MNyG-xu-7SQ'
             });
         });
 
