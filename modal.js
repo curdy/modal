@@ -113,8 +113,11 @@
 
             var loadYoutubeVideo = function() {
                 var $iframe = content = $('<iframe>', {
-                    width: 560,
-                    height: 315,
+                    width: 640,
+                    height: 360,
+                    css: {
+                        display: 'block'
+                    },
                     src: config.youtubeUrl,
                     frameborder: 0,
                     allowfullscreen: 'allowfullscreen'
