@@ -1,6 +1,7 @@
 (function($) {
     'use strict';
     
+    var $document = $(document);
     var $body  = $('body');
     var $roots = $('html').add($body);
     var cache  = {};
@@ -83,7 +84,7 @@
             modal.open = function() {
                 if (typeof config.beforeModalOpen === 'function') config.beforeModalOpen(modal);
                 appendToBody();
-                toggleRootElements();
+                enableRootsActive();
                 modal.$wrapper.fadeIn(config.fadeInDuration ,function() {
                     modal.isActive = true;
                     if (typeof config.afterModalOpen === 'function') config.afterModalOpen(modal);
@@ -94,7 +95,7 @@
                 if (typeof config.beforeModalClose === 'function') config.beforeModalClose(modal);
                 modal.$wrapper.fadeOut(config.fadeOutDuration, function() {
                     removeFromBody();
-                    toggleRootElements();
+                    disableRootsActive();
                     modal.isActive = false;
                     if (typeof config.afterModalClose === 'function') config.afterModalClose(modal);
                 });
@@ -106,8 +107,17 @@
                 if (config.closingSelectors) modal.$modal.on('click', config.closingSelectors.toString(), modal.close);
             };
 
-            var toggleRootElements = function() {
+            var offset = $document.scrollTop();
+
+            var enableRootsActive = function() {
                 $roots.toggleClass('modal-active');
+                $roots.scrollTop(offset);
+            };
+
+            var disableRootsActive = function() {
+                $roots.toggleClass('modal-active');
+                $roots.scrollTop(offset);
+                offset = $document.scrollTop();
             };
 
             var appendToBody = function() {
