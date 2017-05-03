@@ -139,7 +139,7 @@
                     var cachedContent = cache[config.contentUrl];
                     modal.updateContent(cachedContent);
                 } else {
-                    $.get(config.url, function(response) {
+                    $.get(config.contentUrl, function(response) {
                         var ajaxContent = response;
                         modal.updateContent(ajaxContent);
                         cache[config.contentUrl] = config.content;
