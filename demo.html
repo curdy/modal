@@ -6,7 +6,7 @@
     <title>Modal Demo</title>
     <meta name="viewport" content="wih3h=device-wih3h, initial-scale=1.0, maximum-scale=1" />
     <link rel="stylesheet" href="https://rawgit.com/jzilg/frontend_base/master/style/css/jzilg.min.css" />
-    <link rel="stylesheet" href="./modal.css" />
+    <link rel="stylesheet" href="./style/css/modal.css" />
     <style>
 
         h1,
@@ -44,7 +44,7 @@
             Requiremens:
         </p>
         <ul>
-            <li>jQuery</li>
+            <li><a href="https://jquery.com/download/" title="jQuery Download" target="_blank">jQuery</a></li>
             <li>modal.js</li>
         </ul>
 <pre><code>&lt;script src="jquery.js"&gt;&lt;/script&gt;
@@ -220,6 +220,7 @@
                 <p>callback before modal appears</p>
                 <ul>
                     <li>type: function</li>
+                    <li>default: null</li>
                     <li>returns: object</li>
                 </ul>
 <pre><code>$.modal({
@@ -231,6 +232,7 @@
                 <p>callback after modal appears</p>
                 <ul>
                     <li>type: function</li>
+                    <li>default: null</li>
                     <li>returns: object</li>
                 </ul>
 <pre><code>$.modal({
@@ -242,6 +244,7 @@
                 <p>callback before modal disappears</p>
                 <ul>
                     <li>type: function</li>
+                    <li>default: null</li>
                     <li>returns: object</li>
                 </ul>
 <pre><code>$.modal({
@@ -253,6 +256,7 @@
                 <p>callback after modal disappears</p>
                 <ul>
                     <li>type: function</li>
+                    <li>default: null</li>
                     <li>returns: object</li>
                 </ul>
 <pre><code>$.modal({
@@ -262,7 +266,7 @@
         </article>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="modal.js"></script>
+    <script src="./js/modal.js"></script>
     <script>
  
         $('#demo-btn-default').on('click', function() {
