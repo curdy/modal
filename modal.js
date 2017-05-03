@@ -1,9 +1,11 @@
-(function() {
+(function($) {
+    'use strict';
+    
     var $body  = $('body');
     var $roots = $('html').add($body);
     var cache  = {};
 
-    window.modal = function(settings) {
+    $.modal = function(settings) {
 
         function Modal() {
             var modal = this;
@@ -18,6 +20,7 @@
                 closeBtn: true, // show x-close-btn
                 layerClose: true, // modal closes when layer is clicked
                 closingSelectors: null, // custom selectors for elements to close modal
+                showOnInit: true, // show modal when created
                 fadeInDuration: 400, // how fast modal fades in
                 fadeOutDuration: 400, // how fast modal fades out
                 beforeModalOpen: null, // callback before modal appears - returns modal
@@ -65,7 +68,7 @@
 
                 modal.$wrapper.hide();
 
-                modal.open();
+                if (config.showOnInit) modal.open();
             };
 
             modal.updateContent = function(content) {
@@ -148,4 +151,5 @@
 
         return new Modal();
     };
-})();
+
+})(jQuery);

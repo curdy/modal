@@ -61,7 +61,7 @@
             Open Modal
         </button>
 <pre><code>$('#demo-btn-default').on('click', function() {
-    modal({
+    $.modal({
         content: '&lt;div style="padding: 20px;"&gt;&lt;h1&gt;Hallo Welt&lt;/h1&gt;&lt;p&gt; Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.&lt;hr /&gt;&lt;button class="modal-close"&gt;Close&lt;/button&gt;&lt;button class="modal-close2"&gt;Do not close&lt;/button&gt;&lt;/p>&lt;/div&gt;',
         class: 'my-modal',
         closingSelectors: [
@@ -80,7 +80,7 @@
             Ajax-Call
         </button>
 <pre><code>$('#demo-btn-ajax').on('click', function() {
-    modal({
+    $.modal({
         contentUrl: 'ajax-content.html'
     });
 });</code></pre>
@@ -89,7 +89,7 @@
             Yotube
         </button>
 <pre><code>$('#demo-btn-youtube').on('click', function() {
-    modal({
+    $.modal({
         youtubeUrl: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
     });
 });</code></pre>
@@ -103,7 +103,7 @@
                     <li>type: string</li>
                     <li>default: ''</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     content: '&lt;h1&gt;Hallo World&lt;/h1&gt;'
 });</code></pre>
             </section>
@@ -114,7 +114,7 @@
                     <li>type: string</li>
                     <li>default: null</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     contentUrl: 'https://www.yourhomepage.org/content'
 });</code></pre>
             </section>
@@ -125,7 +125,7 @@
                     <li>type: boolean</li>
                     <li>default: true</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     contentUrl: 'https://www.yourhomepage.org/content',
     useCache: false // load content every time
 });</code></pre>
@@ -137,7 +137,7 @@
                     <li>type: string</li>
                     <li>default: null</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     youtubeUrl: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
 });</code></pre>
             </section>
@@ -148,7 +148,7 @@
                     <li>type: string</li>
                     <li>default: ''</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     class: '.mypopup'
 });</code></pre>
             </section>
@@ -159,7 +159,7 @@
                     <li>type: boolean</li>
                     <li>default: true</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     closeBtn: false
 });</code></pre>
             </section>
@@ -170,7 +170,7 @@
                     <li>type: boolean</li>
                     <li>default: true</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     layerClose: false
 });</code></pre>
             </section>
@@ -181,7 +181,7 @@
                     <li>type: array</li>
                     <li>default: null</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     closingSelectors:  [
         '#mypopup-close-btn',
         '.modal-close'
@@ -195,7 +195,7 @@
                     <li>type: integer</li>
                     <li>default: 400</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     fadeInDuration: 0 // apears immediately
 });</code></pre>
             </section>
@@ -206,7 +206,7 @@
                     <li>type: integer</li>
                     <li>default: 400</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     fadeOutDuration: 0 // disapears immediately
 });</code></pre>
             </section>
@@ -217,7 +217,7 @@
                     <li>type: function</li>
                     <li>returns: object</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     beforeModalOpen: (modal)=> console.log('beforeOpen', modal)
 });</code></pre>
             </section>
@@ -228,7 +228,7 @@
                     <li>type: function</li>
                     <li>returns: object</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     afterModalOpen: (modal)=> console.log('afterOpen', modal)
 });</code></pre>
             </section>
@@ -239,7 +239,7 @@
                     <li>type: function</li>
                     <li>returns: object</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     beforeModalClose: (modal)=> console.log('beforeClose', modal)
 });</code></pre>
             </section>
@@ -250,7 +250,7 @@
                     <li>type: function</li>
                     <li>returns: object</li>
                 </ul>
-<pre><code>modal({
+<pre><code>$.modal({
     afterModalClose: (modal)=> console.log('afterClose', modal)
 });</code></pre>
             </section>
@@ -261,7 +261,7 @@
     <script>
  
         $('#demo-btn-default').on('click', function() {
-            modal({
+            $.modal({
                 content: '<div style="padding: 20px;"><h1>Hallo Welt</h1><p> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<hr /><button class="modal-close">Close</button><button class="modal-close2">Do not close</button></p></div>',
                 contentUrl: null,
                 useCache: false,
@@ -282,13 +282,13 @@
         });
  
         $('#demo-btn-ajax').on('click', function() {
-            modal({
+            $.modal({
                 contentUrl: 'ajax-content.html'
             });
         });
 
         $('#demo-btn-youtube').on('click', function() {
-            modal({
+            $.modal({
                 youtubeUrl: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
             });
         });
