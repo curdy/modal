@@ -38,6 +38,11 @@
             var createModal = function() {
                 var closingX = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="12" height="12"><polygon fill="currentColor" points="96,14 82,0 48,34 14,0 0,14 34,48 0,82 14,96 48,62 82,96 96,82 62,48 "/></svg>';
                 
+                var modalClass = 'modal ' + config.class;
+                if (config.youtubeId) {
+                    modalClass = modalClass + ' modal-youtube';
+                }
+
                 modal.$wrapper = $('<div>', {
                     class: 'modal-wrapper'
                 });
@@ -47,7 +52,7 @@
                 });
 
                 modal.$modal = $('<div>', {
-                    class: 'modal ' + config.class
+                    class: modalClass
                 });
 
                 if (config.closeBtn) {
@@ -117,8 +122,8 @@
             var loadYoutubeVideo = function() {
                 var $iframe = $('<iframe>', {
                     css: {
-                        width: 640,
-                        height: 360,
+                        width: '100%',
+                        height: '100%',
                         display: 'block'
                     },
                     src: 'https://www.youtube.com/embed/' + config.youtubeId,
