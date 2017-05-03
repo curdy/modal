@@ -102,7 +102,7 @@
             };
 
             var toggleRootElements = function() {
-                $roots.toggleClass('modal-active')
+                $roots.toggleClass('modal-active');
             };
 
             var appendToBody = function() {
@@ -115,10 +115,10 @@
             };
 
             var loadYoutubeVideo = function() {
-                var $iframe = content = $('<iframe>', {
-                    width: 640,
-                    height: 360,
+                var $iframe = $('<iframe>', {
                     css: {
+                        width: 640,
+                        height: 360,
                         display: 'block'
                     },
                     src: 'https://www.youtube.com/embed/' + config.youtubeId,

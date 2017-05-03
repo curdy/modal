@@ -30,15 +30,9 @@
             overflow: auto;
         }
 
-        code,
-        code h1 {
+        code {
             font-size: 14px;
             font-weight: normal;
-        }
-
-        code h1 {
-            display: inline;
-            margin: 0;
         }
 
     </style>
@@ -104,7 +98,7 @@
                     <li>default: ''</li>
                 </ul>
 <pre><code>$.modal({
-    content: '&lt;h1&gt;Hallo World&lt;/h1&gt;'
+    content: '&lt;h1&gt;Hello World&lt;/h1&gt;'
 });</code></pre>
             </section>
             <section>
@@ -138,7 +132,7 @@
                     <li>default: null</li>
                 </ul>
 <pre><code>$.modal({
-    youtubeId: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
+    youtubeId: 'MNyG-xu-7SQ'
 });</code></pre>
             </section>
             <section>
@@ -187,6 +181,17 @@
         '.modal-close'
     ]
 });</code></pre>       
+            </section>
+            <section>
+                <h3>showOnInit</h3>
+                <p>show modal when created</p>
+                <ul>
+                    <li>type: boolean</li>
+                    <li>default: true</li>
+                </ul>
+<pre><code>$.modal({
+    showOnInit: false
+});</code></pre>
             </section>
             <section>
                 <h3>fadeInDuration</h3>
@@ -289,7 +294,7 @@
 
         $('#demo-btn-youtube').on('click', function() {
             $.modal({
-                youtubeId: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
+                youtubeId: 'MNyG-xu-7SQ'
             });
         });
 
