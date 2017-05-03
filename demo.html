@@ -90,7 +90,7 @@
         </button>
 <pre><code>$('#demo-btn-youtube').on('click', function() {
     $.modal({
-        youtubeUrl: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
+        youtubeId: 'MNyG-xu-7SQ'
     });
 });</code></pre>
         <hr>
@@ -131,14 +131,14 @@
 });</code></pre>
             </section>
             <section>
-                <h3>youtubeUrl</h3>
+                <h3>youtubeId</h3>
                 <p>show youtube-iframe</p>
                 <ul>
                     <li>type: string</li>
                     <li>default: null</li>
                 </ul>
 <pre><code>$.modal({
-    youtubeUrl: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
+    youtubeId: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
 });</code></pre>
             </section>
             <section>
@@ -265,7 +265,7 @@
                 content: '<div style="padding: 20px;"><h1>Hallo Welt</h1><p> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<hr /><button class="modal-close">Close</button><button class="modal-close2">Do not close</button></p></div>',
                 contentUrl: null,
                 useCache: false,
-                youtubeUrl: null,
+                youtubeId: null,
                 class: 'my-modal',
                 closeBtn: true,
                 layerClose: true,
@@ -289,7 +289,7 @@
 
         $('#demo-btn-youtube').on('click', function() {
             $.modal({
-                youtubeUrl: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
+                youtubeId: 'https://www.youtube.com/embed/MNyG-xu-7SQ'
             });
         });
 

@@ -15,7 +15,7 @@
                 content: '', // content to show initial
                 contentUrl: null, // content from an external url (ajax-loaded)
                 useCache: true, // don't repeat ajax-load every time
-                youtubeUrl: null, // show youtube-iframe
+                youtubeId: null, // show youtube-iframe
                 class: '', // custom class for modal
                 closeBtn: true, // show x-close-btn
                 layerClose: true, // modal closes when layer is clicked
@@ -32,7 +32,7 @@
             var init = function() {
                 createModal();
                 if (config.contentUrl) loadExternal();
-                if (config.youtubeUrl) loadYoutubeVideo();
+                if (config.youtubeId) loadYoutubeVideo();
             };
 
             var createModal = function() {
@@ -121,7 +121,7 @@
                     css: {
                         display: 'block'
                     },
-                    src: config.youtubeUrl,
+                    src: 'https://www.youtube.com/embed/' + config.youtubeId,
                     frameborder: 0,
                     allowfullscreen: 'allowfullscreen'
                 });
