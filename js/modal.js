@@ -142,7 +142,7 @@
                     $.get(config.contentUrl, function(response) {
                         var ajaxContent = response;
                         modal.updateContent(ajaxContent);
-                        cache[config.contentUrl] = config.content;
+                        cache[config.contentUrl] = ajaxContent;
                     }).fail(function() {
                         console.log('Ajax failed - wrong URL?');
                     });
