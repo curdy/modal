@@ -282,25 +282,28 @@
     <script src="./js/modal.js"></script>
     <script>
  
+        var modal = $.modal({
+            content: '<div style="padding: 20px;"><h1>Hallo Welt</h1><p> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<hr /><button class="modal-close">Close</button><button class="modal-close2">Do not close</button></p></div>',
+            contentUrl: null,
+            useCache: false,
+            youtubeId: null,
+            class: 'my-modal',
+            closeBtn: true,
+            layerClose: true,
+            closingSelectors: [
+                '.modal-close'
+            ],
+            showOnInit: false,
+            fadeInDuration: 600,
+            fadeOutDuration: 100,
+            beforeModalOpen: (modal)=> console.log('beforeOpen', modal),
+            afterModalOpen: (modal)=> console.log('afterOpen', modal),
+            beforeModalClose: (modal)=> console.log('beforeClose', modal),
+            afterModalClose: (modal)=> console.log('afterClose', modal)
+        });
+
         $('#demo-btn-default').on('click', function() {
-            $.modal({
-                content: '<div style="padding: 20px;"><h1>Hallo Welt</h1><p> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<hr /><button class="modal-close">Close</button><button class="modal-close2">Do not close</button></p></div>',
-                contentUrl: null,
-                useCache: false,
-                youtubeId: null,
-                class: 'my-modal',
-                closeBtn: true,
-                layerClose: true,
-                closingSelectors: [
-                    '.modal-close'
-                ],
-                fadeInDuration: 600,
-                fadeOutDuration: 100,
-                beforeModalOpen: (modal)=> console.log('beforeOpen', modal),
-                afterModalOpen: (modal)=> console.log('afterOpen', modal),
-                beforeModalClose: (modal)=> console.log('beforeClose', modal),
-                afterModalClose: (modal)=> console.log('afterClose', modal)
-            });
+            modal.open();
         });
  
         $('#demo-btn-ajax').on('click', function() {
