@@ -10,6 +10,7 @@
 
         function Modal() {
             var modal = this;
+            var modalCreated = false;
             modal.isActive = false;
 
             var config = $.extend({
@@ -31,9 +32,7 @@
             }, settings);
 
             var init = function() {
-                createModal();
-                if (config.contentUrl) loadExternal();
-                if (config.youtubeId) loadYoutubeVideo();
+                if (config.showOnInit) modal.open();
             };
 
             var createModal = function() {
@@ -74,7 +73,9 @@
 
                 modal.$wrapper.hide();
 
-                if (config.showOnInit) modal.open();
+                if (config.contentUrl) loadExternal();
+                if (config.youtubeId) loadYoutubeVideo();
+                modalCreated = true;
             };
 
             modal.updateContent = function(content) {
@@ -82,6 +83,8 @@
             };
 
             modal.open = function() {
+                if (!modalCreated) createModal();
+
                 if (typeof config.beforeModalOpen === 'function') config.beforeModalOpen(modal);
                 appendToBody();
                 enableRootsActive();
