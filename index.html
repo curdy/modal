@@ -305,17 +305,23 @@
         $('#demo-btn-default').on('click', function() {
             modal.open();
         });
+
+        var ajaxModal = $.modal({
+            contentUrl: 'ajax-content.html',
+            showOnInit: false
+        });
  
         $('#demo-btn-ajax').on('click', function() {
-            $.modal({
-                contentUrl: 'ajax-content.html'
-            });
+            ajaxModal.open();
+        });
+
+        var youtubeModal = $.modal({
+            youtubeId: 'MNyG-xu-7SQ',
+            showOnInit: false
         });
 
         $('#demo-btn-youtube').on('click', function() {
-            $.modal({
-                youtubeId: 'MNyG-xu-7SQ'
-            });
+            youtubeModal.open();
         });
 
     </script>
