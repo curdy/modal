@@ -107,9 +107,14 @@
                 if (config.closingSelectors) modal.$modal.on('click', config.closingSelectors.toString(), modal.close);
             };
 
-            var offset = $document.scrollTop();
+            var offset = 0;
+
+            var setOffset = function() {
+                offset = $document.scrollTop();
+            }
 
             var enableRootsActive = function() {
+                setOffset();
                 $roots.css('top', (-offset) + 'px')
                       .addClass('modal-active');
             };
@@ -118,7 +123,6 @@
                 $roots.css('top', '')
                       .removeClass('modal-active')
                       .scrollTop(offset);
-                offset = $document.scrollTop();
             };
 
             var appendToBody = function() {
