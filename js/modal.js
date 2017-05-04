@@ -109,12 +109,8 @@
 
             var offset = 0;
 
-            var setOffset = function() {
-                offset = $document.scrollTop();
-            }
-
             var enableRootsActive = function() {
-                setOffset();
+                offset = $document.scrollTop();
                 $roots.css('top', (-offset) + 'px')
                       .addClass('modal-active');
             };
