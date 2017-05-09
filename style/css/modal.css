@@ -42,6 +42,7 @@ button::-moz-focus-inner {
 .modal {
     display: flex;
     position: relative;
+    width: 90%;
     max-width: 90%;
     max-height: 90%;
     z-index: 9999;
