@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>jQuery-Modal - Demo and Documentation</title>
-    <meta name="viewport" content="wih3h=device-wih3h, initial-scale=1.0, maximum-scale=1" />
+    <title>Modal Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <link rel="stylesheet" href="https://rawgit.com/jzilg/frontend_base/master/dist/css/jzilg.min.css" />
-    <link rel="stylesheet" href="./style/css/modal.css" />
+    <link rel="stylesheet" href="https://rawgit.com/jzilg/modal/master/style/css/modal.css" />
     <style>
 
         h1,
@@ -40,17 +40,19 @@
 <body>
     <div class="container">
         <h1>jQuery - Modal</h1>
-        <ul>
+        <p>
+            A full responsive, easy-to-use modal plugin based on jQuery.
+            Optimized for mobile browsers, including Apple Safari.
+        </p>
+        <ul id="toc">
             <li><a href="https://github.com/jzilg/modal" title="see on GitHub" target="_blank">Source</a></li>
-            <li><a href="#requiremens">Requiremens</a></li>
-            <li><a href="#demos">Demos</a></li>
-            <li><a href="#settings">Settings</a></li>
         </ul>
-        <h2 id="requiremens">Requiremens</h2>
+        <hr>
+        <h2 id="requiremens">Requirements</h2>
         <ul>
             <li><a href="https://jquery.com/download/" title="jQuery Download" target="_blank">jQuery</a></li>
-            <li>modal.js</li>
-            <li>modal.css</li>
+            <li><a href="https://github.com/jzilg/modal/tree/master/js" title="modal.js on github" target="_blank">modal.js</a></li>
+            <li><a href="https://github.com/jzilg/modal/blob/master/style/css/modal.css" title="modal css on github" target="_blank">modal.css</a></li>
         </ul>
         <p>
             <b>add this to your head</b>
@@ -63,25 +65,49 @@
         </p>
         <hr>
         <h2 id="demos">Demos</h2>
+        <h3>Simple Modal</h3>
+        <button id="demo-btn-simple" class="btn btn-filled btn-blue">
+            Open Modal
+        </button>
+<pre><code>$('#demo-btn-simple').on('click', function() {
+    $.modal({
+        content: '&lt;h1&gt;Hallo World&lt;/h1&gt;
+    });
+});</code></pre>
         <h3>Modal with static content</h3>
         <button id="demo-btn-default" class="btn btn-filled btn-blue">
             Open Modal
         </button>
-<pre><code>$('#demo-btn-default').on('click', function() {
-    $.modal({
-        content: '&lt;div style="padding: 20px;"&gt;&lt;h1&gt;Hallo Welt&lt;/h1&gt;&lt;p&gt; Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.&lt;hr /&gt;&lt;button class="modal-close"&gt;Close&lt;/button&gt;&lt;button class="modal-close2"&gt;Do not close&lt;/button&gt;&lt;/p>&lt;/div&gt;',
-        class: 'my-modal',
-        closingSelectors: [
-            '.modal-close'
-        ],
-        fadeInDuration: 600,
-        fadeOutDuration: 100,
-        beforeModalOpen: (modal)=> console.log('beforeOpen', modal),
-        afterModalOpen: (modal)=> console.log('afterOpen', modal),
-        beforeModalClose: (modal)=> console.log('beforeClose', modal),
-        afterModalClose: (modal)=> console.log('afterClose', modal)
-    });
-});</code></pre>
+<pre><code>    &lt;div id="demo-content" style="padding: 20px;"&gt;
+        &lt;h1&gt;Hallo Welt&lt;/h1&gt;
+        &lt;p&gt;
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+            sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+            diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+            ea rebum.
+        &lt;/p&gt;
+        &lt;hr /&gt;
+        &lt;button class="modal-close"&gt;Close&lt;/button&gt;
+        &lt;button class="modal-close2"&gt;Do not close&lt;/button&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+    
+    $('#demo-btn-default').on('click', function() {
+        $.modal({
+            content: $('#demo-content'),
+            class: 'my-modal',
+            closingSelectors: [
+                '.modal-close'
+            ],
+            fadeInDuration: 600,
+            fadeOutDuration: 100,
+            beforeModalOpen: (modal)=> console.log('beforeOpen', modal),
+            afterModalOpen: (modal)=> console.log('afterOpen', modal),
+            beforeModalClose: (modal)=> console.log('beforeClose', modal),
+            afterModalClose: (modal)=> console.log('afterClose', modal)
+        });
+    });</code></pre>
         <h3>Modal with ajax-loaded resource</h3>
         <button id="demo-btn-ajax" class="btn btn-filled btn-blue">
             Ajax-Call
@@ -156,7 +182,7 @@
                     <li>default: ''</li>
                 </ul>
 <pre><code>$.modal({
-    class: '.mypopup'
+    class: '.mymodal'
 });</code></pre>
             </section>
             <section>
@@ -190,7 +216,7 @@
                 </ul>
 <pre><code>$.modal({
     closingSelectors:  [
-        '#mypopup-close-btn',
+        '#mymodal-close-btn',
         '.modal-close'
     ]
 });</code></pre>       
@@ -279,49 +305,79 @@
         </article>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="./js/modal.js"></script>
+    <script src="https://rawgit.com/jzilg/modal/master/js/modal.js"></script>
     <script>
+
+        $('#demo-btn-simple').on('click', function() {
+            $.modal({
+                content: '<h1>Hallo World</h1>'
+            });
+        });
  
-        var modal = $.modal({
-            content: '<div style="padding: 20px;"><h1>Hallo Welt</h1><p> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<hr /><button class="modal-close">Close</button><button class="modal-close2">Do not close</button></p></div>',
-            contentUrl: null,
-            useCache: false,
-            youtubeId: null,
-            class: 'my-modal',
-            closeBtn: true,
-            layerClose: true,
-            closingSelectors: [
-                '.modal-close'
-            ],
-            showOnInit: false,
-            fadeInDuration: 600,
-            fadeOutDuration: 100,
-            beforeModalOpen: (modal)=> console.log('beforeOpen', modal),
-            afterModalOpen: (modal)=> console.log('afterOpen', modal),
-            beforeModalClose: (modal)=> console.log('beforeClose', modal),
-            afterModalClose: (modal)=> console.log('afterClose', modal)
-        });
-
         $('#demo-btn-default').on('click', function() {
-            modal.open();
-        });
-
-        var ajaxModal = $.modal({
-            contentUrl: 'ajax-content.html',
-            showOnInit: false
+            $.modal({
+                content: '<div style="padding: 20px;"><h1>Hallo Welt</h1><p> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<hr /><button class="modal-close">Close</button><button class="modal-close2">Do not close</button></p></div>',
+                contentUrl: null,
+                useCache: false,
+                youtubeId: null,
+                class: 'my-modal',
+                closeBtn: true,
+                layerClose: true,
+                closingSelectors: [
+                    '.modal-close'
+                ],
+                fadeInDuration: 600,
+                fadeOutDuration: 100,
+                beforeModalOpen: (modal)=> console.log('beforeOpen', modal),
+                afterModalOpen: (modal)=> console.log('afterOpen', modal),
+                beforeModalClose: (modal)=> console.log('beforeClose', modal),
+                afterModalClose: (modal)=> console.log('afterClose', modal)
+            });
         });
  
         $('#demo-btn-ajax').on('click', function() {
-            ajaxModal.open();
-        });
-
-        var youtubeModal = $.modal({
-            youtubeId: 'MNyG-xu-7SQ',
-            showOnInit: false
+            $.modal({
+                contentUrl: 'https://jzilg.github.io/jquery-modal/ajax-content.html'
+            });
         });
 
         $('#demo-btn-youtube').on('click', function() {
-            youtubeModal.open();
+            $.modal({
+                youtubeId: 'MNyG-xu-7SQ'
+            });
+        });
+
+        var $toc = $('#toc');
+        var oldUl = {
+            wasH3: false,
+            ul: null
+        }
+
+        $('h2, h3').each(function() {
+            var $this = $(this);
+            var id = $this.html().replace(' ', '-').toLocaleLowerCase();
+            var $li = $('<li>')
+            var $link = $('<a>', {
+                href: '#' + id,
+                title: $this.html(),
+            }).text($this.html());
+
+            $li.append($link);
+
+            if ($this.is('h3')) {
+                if (!oldUl.wasH3) {
+                    oldUl.ul = $('<ul>');
+                }
+                oldUl.ul.append($li);
+                oldUl.wasH3 = true;
+
+                $toc.append(oldUl.ul);
+            } else {
+                oldUl.wasH3 = false;
+                $toc.append($li);
+            }
+
+            $this.attr('id', id);
         });
 
     </script>
